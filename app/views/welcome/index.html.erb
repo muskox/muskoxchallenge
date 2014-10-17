@@ -1,0 +1,17 @@
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Muskox Challenge</h1>
+        <p class="lead">A health, fitness, and nutrition log.</p>
+        <p>
+           <% if current_user -%>
+           Signed in as <strong><%= current_user.name %></strong>!
+           <%= link_to "Sign out", signout_path, id: "sign_out" %>
+           <% else -%>
+           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+           <% end -%>
+        </p>
+      </div>
+
+      <%= render "rules/howitworks" %>
+
+    </div>

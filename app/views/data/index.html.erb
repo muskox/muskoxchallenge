@@ -1,0 +1,217 @@
+    <div class="container">
+      <div class="starter-template">
+
+        <div class="row">
+          <div class="col-md-6">
+            <p class="lead">Welcome, <%= current_user.name %></p>
+          </div>
+          <% if @today_point == 0 %>
+          <div class="col-md-6">
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#RecordPointsModal">Record Points</button>
+          </div>
+          <% end %>
+        </div>
+
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+
+      <div class="table-responsive">
+        <table class="table">
+
+          <tr>
+          <td></td>
+          <% @dateslist.each do |n| -%>
+          <td><%= n  %></td>
+          <% end -%>
+          </tr>
+
+
+          <tr>
+          <td>Nutrition</td>
+          <% @nutritionlist.each do |n| -%>
+      
+          <td><% if n == 5 -%><span class="badge badge-red">&nbsp;</span><% elsif n == 4 -%><span class="badge badge-red2">&nbsp;</span><% elsif n == 3  -%><span class="badge badge-red3">&nbsp;</span><% elsif n == 2 -%><span class="badge badge-orange">&nbsp;</span><% elsif n == 1 -%><span class="badge badge-orange2">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
+          <% end -%>
+          </tr>
+
+          <tr>
+          <td>Workout</td> 
+          <% @workoutlist.each do |n| -%>
+          <td><% if n == 1 -%><span class="badge badge-yellow">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
+          <% end -%>
+          </tr>
+
+          <tr>
+          <td>Mobilize</td>
+          <% @mobilizelist.each do |n| -%>
+          <td><% if n == 1 -%><span class="badge badge-green">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
+          <% end -%>
+          </tr>
+
+          <tr>
+          <td>Supplement</td>
+          <% @supplementlist.each do |n| -%>
+          <td><% if n == 1 -%><span class="badge badge-blue">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
+          <% end -%>
+          </tr>
+
+          <% if @show_lifestyle_points == 1 -%>
+          <tr>
+          <td>Lifestyle</td>
+          <% @lifestylelist.each do |n| -%>
+          <td><% if n == 1 -%><span class="badge badge-violet">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
+          <% end -%>
+          </tr>
+          <% end -%>
+
+        </table>
+      </div>
+
+
+      </div>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="RecordPointsModal" tabindex="-1" role="dialog" aria-labelledby="RecordPointsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Yesterday's Points</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :post, url: posts_path do |f| %>
+
+  <fieldset>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <label for="nutrition">Nutrition</label>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <%= f.select(:nutrition, [['5',5],['4',4],['3',3],['2',2],['1',1],['0',0]]) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <label for="workout">Workout</label>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="onoffswitch">
+        <%= check_box_tag "post[workout]", "1", true, :class => 'onoffswitch-checkbox' %>
+        <label class="onoffswitch-label" for="post_workout">
+          <div class="onoffswitch-inner"></div>
+          <div class="onoffswitch-switch"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <label for="mobilize">Mobilize</label>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="onoffswitch">
+        <%= check_box_tag "post[mobilize]", "1", true, :class => 'onoffswitch-checkbox' %>
+        <label class="onoffswitch-label" for="post_mobilize">
+          <div class="onoffswitch-inner"></div>
+          <div class="onoffswitch-switch"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <label for="supplement">Supplement</label>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="onoffswitch">
+        <%= check_box_tag "post[supplement]", "1", true, :class => 'onoffswitch-checkbox' %>
+        <label class="onoffswitch-label" for="post_supplement">
+          <div class="onoffswitch-inner"></div>
+          <div class="onoffswitch-switch"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+
+
+  <% if @show_lifestyle_points == 1 -%>
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <label for="lifestyle">Lifestyle</label>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <div class="onoffswitch">
+        <%= check_box_tag "post[lifestyle]", "1", true, :class => 'onoffswitch-checkbox' %>
+        <label class="onoffswitch-label" for="post_lifestyle">
+          <div class="onoffswitch-inner"></div>
+          <div class="onoffswitch-switch"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">&nbsp;</div>
+    <div class="col-md-6">&nbsp;</div>
+  </div>
+  <% end -%>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <p class="text-right">
+        <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">Cancel</button>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <%= f.submit 'Save', :class => 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+
+        <% end %>
+
+  </fieldset>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
