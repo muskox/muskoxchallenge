@@ -24,7 +24,9 @@ vagrant up
 vagrant ssh  # now you are on the vagrant vm
 cd /vagrant
 bundle install
-gem install rails # I know this is crazy, already in the Gemfile, but give it once more
+exit # leave vagrant
+vagrant ssh
+cd /vagrant
 rake db:create
 rake db:migrate
 rails s
