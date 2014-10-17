@@ -7,13 +7,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "ubuntu/trusty64"
 
+  config.vm.provider(:virtualbox) do |vb|
+    vb.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+    vb.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+  end
+
   # Configurate the virtual machine to use 2GB of RAM
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "2048"]
   end
 
-  # Forward the Rails server default port to the host
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network 'private_network', ip: '192.168.88.33'
 
   config.omnibus.chef_version = :latest
 

@@ -34,7 +34,7 @@ rails s
 
 Check the app
 -------------
-The app should be running on http://localhost:3000
+The app should be running on http://192.168.88.33:3000
 
 
 Facebook App Credentials
