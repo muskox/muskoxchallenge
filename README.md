@@ -51,6 +51,13 @@ export FACEBOOK_SECRET="YOUR_SECRET_KEY_HERE"
 
 Your facebook app developer account requires the domain name match their records. You cannot use localhost, you must use a top level domain you control.
 
+One easy way to do this on your Mac is handled [here](http://www.makeuseof.com/tag/how-to-edit-the-mac-os-x-hosts-file-and-why-you-might-want-to/)
 
+```
+sudo /etc/hosts
+# add the line 
+# 192.168.88.33	DOMAIN_YOU_CONTROL.com
+```
 
+This will allow you to use the facebook login.
 
