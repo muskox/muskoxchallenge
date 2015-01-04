@@ -29,7 +29,7 @@ vagrant ssh
 cd /vagrant
 rake db:create
 rake db:migrate
-rails s
+bundle exec rails s
 ```
 
 Check the app
