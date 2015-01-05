@@ -14,13 +14,6 @@ SITE
       yum (>= 3.0)
 
 GIT
-  remote: https://github.com/fnichol/chef-rbenv
-  ref: master
-  sha: 0a3018634bafe58ad21c6ee271af015220e444b9
-  specs:
-    rbenv (0.7.3)
-
-GIT
   remote: https://github.com/mdxp/nodejs-cookbook
   ref: master
   sha: e2415cd8c4e03dccf21d7ef6ca31e1c5c81467ca
@@ -29,6 +22,13 @@ GIT
       apt (>= 0.0.0)
       build-essential (>= 0.0.0)
       yum-epel (>= 0.0.0)
+
+GIT
+  remote: https://github.com/muskox/chef-rbenv
+  ref: master
+  sha: 7b1b96356ac61072c1d2c181642f98bb5c09bd7e
+  specs:
+    rbenv (0.7.3)
 
 DEPENDENCIES
   apt (>= 0)
