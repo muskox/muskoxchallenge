@@ -14,9 +14,9 @@ SITE
       yum (>= 3.0)
 
 GIT
-  remote: https://github.com/fnichol/chef-rbenv
+  remote: https://github.com/muskox/chef-rbenv
   ref: master
-  sha: 0a3018634bafe58ad21c6ee271af015220e444b9
+  sha: 7b1b96356ac61072c1d2c181642f98bb5c09bd7e
   specs:
     rbenv (0.7.3)
 
