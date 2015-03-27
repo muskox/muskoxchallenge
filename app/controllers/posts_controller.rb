@@ -19,12 +19,6 @@ class PostsController < ApplicationController
     if params[:post][:mobilize].nil?
       @post.mobilize = 0
     end
-    if params[:post][:supplement].nil?
-      @post.supplement = 0
-    end
-    if params[:post][:lifestyle].nil?
-      @post.lifestyle = 0
-    end
     @post.save
     redirect_to :controller => 'data', :action => 'index'
   end
