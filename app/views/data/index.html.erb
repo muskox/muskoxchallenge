@@ -28,44 +28,19 @@
           <% end -%>
           </tr>
 
-
           <tr>
-          <td>Nutrition</td>
-          <% @nutritionlist.each do |n| -%>
-      
-          <td><% if n == 5 -%><span class="badge badge-red">&nbsp;</span><% elsif n == 4 -%><span class="badge badge-red2">&nbsp;</span><% elsif n == 3  -%><span class="badge badge-red3">&nbsp;</span><% elsif n == 2 -%><span class="badge badge-orange">&nbsp;</span><% elsif n == 1 -%><span class="badge badge-orange2">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
-          <% end -%>
-          </tr>
-
-          <tr>
-          <td>Workout</td> 
+          <td>Meditate</td> 
           <% @workoutlist.each do |n| -%>
           <td><% if n == 1 -%><span class="badge badge-yellow">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
           <% end -%>
           </tr>
 
           <tr>
-          <td>Mobilize</td>
+          <td>Stretch</td>
           <% @mobilizelist.each do |n| -%>
           <td><% if n == 1 -%><span class="badge badge-green">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
           <% end -%>
           </tr>
-
-          <tr>
-          <td>Supplement</td>
-          <% @supplementlist.each do |n| -%>
-          <td><% if n == 1 -%><span class="badge badge-blue">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
-          <% end -%>
-          </tr>
-
-          <% if @show_lifestyle_points == 1 -%>
-          <tr>
-          <td>Lifestyle</td>
-          <% @lifestylelist.each do |n| -%>
-          <td><% if n == 1 -%><span class="badge badge-violet">&nbsp;</span><% else -%>&nbsp;<% end -%></td>
-          <% end -%>
-          </tr>
-          <% end -%>
 
         </table>
       </div>
@@ -91,23 +66,7 @@
   <div class="row">
     <div class="col-md-6">
       <p class="text-right">
-        <label for="nutrition">Nutrition</label>
-      </p>
-    </div>
-    <div class="col-md-6">
-      <%= f.select(:nutrition, [['5',5],['4',4],['3',3],['2',2],['1',1],['0',0]]) %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">&nbsp;</div>
-    <div class="col-md-6">&nbsp;</div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <p class="text-right">
-        <label for="workout">Workout</label>
+        <label for="workout">Meditate</label>
       </p>
     </div>
     <div class="col-md-6">
@@ -129,7 +88,7 @@
   <div class="row">
     <div class="col-md-6">
       <p class="text-right">
-        <label for="mobilize">Mobilize</label>
+        <label for="mobilize">Stretch</label>
       </p>
     </div>
     <div class="col-md-6">
@@ -147,54 +106,6 @@
     <div class="col-md-6">&nbsp;</div>
     <div class="col-md-6">&nbsp;</div>
   </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <p class="text-right">
-        <label for="supplement">Supplement</label>
-      </p>
-    </div>
-    <div class="col-md-6">
-      <div class="onoffswitch">
-        <%= check_box_tag "post[supplement]", "1", true, :class => 'onoffswitch-checkbox' %>
-        <label class="onoffswitch-label" for="post_supplement">
-          <div class="onoffswitch-inner"></div>
-          <div class="onoffswitch-switch"></div>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">&nbsp;</div>
-    <div class="col-md-6">&nbsp;</div>
-  </div>
-
-
-  <% if @show_lifestyle_points == 1 -%>
-  <div class="row">
-    <div class="col-md-6">
-      <p class="text-right">
-        <label for="lifestyle">Lifestyle</label>
-      </p>
-    </div>
-    <div class="col-md-6">
-      <div class="onoffswitch">
-        <%= check_box_tag "post[lifestyle]", "1", true, :class => 'onoffswitch-checkbox' %>
-        <label class="onoffswitch-label" for="post_lifestyle">
-          <div class="onoffswitch-inner"></div>
-          <div class="onoffswitch-switch"></div>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">&nbsp;</div>
-    <div class="col-md-6">&nbsp;</div>
-  </div>
-  <% end -%>
-
 
   <div class="row">
     <div class="col-md-6">
